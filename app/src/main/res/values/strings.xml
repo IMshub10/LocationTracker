@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LocationTracker</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="_91">+91</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="login">Login</string>
+    <string name="welcome_header">Welcome Aboard!</string>
+    <string name="welcome_sub_header">Please enter your name and phone number.</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+</resources>

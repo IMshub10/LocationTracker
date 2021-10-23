@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_welcome_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_horizontal"
+        android:text="@string/welcome_header"
+        android:textColor="?attr/label"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_welcome_sub_header"
+        style="@style/text_body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:breakStrategy="simple"
+        android:text="@string/welcome_sub_header"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome_header" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome_sub_header">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_country_code"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:autofillHints="Country code"
+            android:inputType="phone"
+            android:text="@string/_91"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_phone_number"
+            android:inputType="phone"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_number" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_phone_number">
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_user_first_name"
+            style="@style/text_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            android:padding="16dp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_user_last_name"
+            style="@style/text_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            android:padding="16dp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.App.ButtonStyle"
+        android:drawablePadding="8dp"
+        android:padding="16dp"
+        android:text="@string/login"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_name" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,81 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.LocationTracker" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <item name="colorSurface">@color/white_hole</item>
+        <item name="colorOnSurface">@color/grey_lightest</item>
+
+        <item name="colorError">@color/red_light</item>
+        <item name="colorAccent">@color/grey_lighter</item>
+
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorBackgroundFloating">@color/grey_lightest</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="statusBarForeground">?attr/colorOnPrimary</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:colorEdgeEffect">@color/transparent</item>
+
+        <item name="android:textColorLink">@color/blue_dark</item>
+        <item name="colorHint">@color/grey_dark</item>>
+
+        <item name="label">@color/black</item>
+        <item name="labelSecondary">@color/opaque_0.6</item>
+        <item name="labelTertiary">@color/opaque_0.3</item>
+        <item name="colorGreen">@color/green_light</item>
+
+        <item name="colorSeparator">@color/separator_light</item>
+        <item name="iconColorPrimary">@color/blue_light</item>
+        <item name="iconColorSecondary">?attr/labelSecondary</item>
+
+    </style>
+
+    <!--Image View Style=============================================================================-->
+    <style name="ImageViewShape" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <!--Seperator====================================================================================-->
+    <style name="Separator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?attr/colorSeparator</item>
+    </style>
+
+    <!--Text Styles==================================================================================-->
+    <style name="text_header_bold" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">0.012</item>
+        <item name="android:textColor">?attr/label</item>
+        <item name="fontFamily">@font/merriweather_bold</item>
+    </style>
+
+    <style name="text_body" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">15sp</item>
+        <item name="lineHeight">22.5sp</item>
+        <item name="android:letterSpacing">0.016</item>
+        <item name="android:textColor">?attr/label</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="text_caption" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">?attr/label</item>
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <!--Material Button color style -->
+    <style name="Widget.App.ButtonStyle"
+        parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/LightButtonThemeOverlay</item>
+    </style>
+
+    <style name="LightButtonThemeOverlay">
+        <item name="colorPrimary">@color/grey_lightest</item>
+    </style>
+</resources>

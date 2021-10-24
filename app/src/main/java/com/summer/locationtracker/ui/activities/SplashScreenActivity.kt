@@ -13,11 +13,11 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-        if(!checkUserIsValid()){
+        if (!checkUserIsValid()) {
             val activityIntent = Intent(this, AuthenticationActivity::class.java)
             startActivity(activityIntent)
-        }else{
-            val activityIntent = Intent(this,MapsActivity::class.java)
+        } else {
+            val activityIntent = Intent(this, MapsActivity::class.java)
             startActivity(activityIntent)
         }
     }
@@ -25,7 +25,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun checkUserIsValid(): Boolean {
         val loadUserData = LocalUserDataStorage.getLocalUserData(this)
-        if (loadUserData.firstName != null && loadUserData.lastName != null && loadUserData.phoneNumber != 0L) {
+        if (loadUserData.firstName != null && loadUserData.lastName != null && loadUserData.countryCode != null && loadUserData.phoneNumber != 0L) {
             return true
         }
         return false

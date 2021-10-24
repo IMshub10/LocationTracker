@@ -4,6 +4,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+
 class AuthViewModel : ViewModel() {
     val countryCode: MutableLiveData<Boolean> by lazy {
         MutableLiveData<Boolean>()
@@ -19,7 +20,7 @@ class AuthViewModel : ViewModel() {
     }
 
     init {
-        countryCode.value = false
+        countryCode.value = true // +91 is already set
         phoneNumber.value = false
         firstName.value = false
         lastName.value = false

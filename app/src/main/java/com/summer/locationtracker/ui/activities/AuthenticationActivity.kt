@@ -103,7 +103,9 @@ class AuthenticationActivity : AppCompatActivity() {
                     binding.etCountryCode.text!!.trim().toString(),
                     binding.etPhoneNumber.text!!.trim().toString().toLong(),
                     binding.etUserFirstName.text!!.trim().toString(),
-                    binding.etUserLastName.text!!.trim().toString()
+                    binding.etUserLastName.text!!.trim().toString(),
+                    "0",
+                    "0"
                 )
                 CoroutineScope(Dispatchers.IO).launch {
                     LocalUserDataStorage.setLocalUserData(

@@ -8,7 +8,9 @@ import com.summer.locationtracker.service.FetchLocationService
 
 class ServiceAlarmHandler(private val mContext: Context) {
 
-
+    /**
+     * Initializing alarm and assigning a service
+     */
     fun setAlarmManager() {
         val startServiceIntent = Intent(mContext, FetchLocationService::class.java)
         val sender = PendingIntent.getForegroundService(
@@ -26,6 +28,9 @@ class ServiceAlarmHandler(private val mContext: Context) {
         )
     }
 
+    /**
+     * Cancelling alarm and assigning a service
+     */
     fun cancelAlarmManager() {
         val startServiceIntent = Intent(mContext, FetchLocationService::class.java)
         val sender = PendingIntent.getForegroundService(

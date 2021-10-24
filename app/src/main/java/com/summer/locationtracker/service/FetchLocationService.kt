@@ -12,12 +12,13 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import com.google.android.gms.location.LocationServices
 import com.summer.locationtracker.R
+import com.summer.locationtracker.data.local_user_storage.LocalUserDataStorage
 import com.summer.locationtracker.ui.activities.MapsActivity
 import com.summer.locationtracker.utils.WriteNUpdateUsersLocation
 import java.lang.Exception
 
 class FetchLocationService : Service() {
-    private  val TAG = "FetchLocationService"
+    private val TAG = "FetchLocationService"
     private val locationServiceChannel = "LocationServiceChannel"
 
     override fun onBind(intent: Intent?): IBinder? {
@@ -62,24 +63,24 @@ class FetchLocationService : Service() {
             return
         }
         LocationServices.getFusedLocationProviderClient(
-            this
+            applicationContext
         ).lastLocation
             .addOnSuccessListener { location: Location? ->
-                if (location != null){
-                    Log.e(TAG,"Success")
-                    val storeValue =
-                        "From Service-> Latitude = ${location.latitude}    Longitude = ${location.longitude}"
-                    try {
-                        WriteNUpdateUsersLocation().createOrUpdate(applicationContext, storeValue)
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    }
-                }else{
-                    Log.e(TAG,"location is null")
+                if (location != null) {
+                    Log.e(TAG, "Success")
+                    LocalUserDataStorage.setUsersLocationData(
+                        applicationContext,
+                        location.latitude.toString(),
+                        location.longitude.toString()
+                    )
                 }
+                val prefModel = LocalUserDataStorage.getLocalUserData(applicationContext)
+                val storeValue =
+                    "From Service-> Latitude = ${prefModel.lastKnowLatitude}    Longitude = ${prefModel.lastKnowLongitude}"
+                WriteNUpdateUsersLocation().createOrUpdate(applicationContext, storeValue)
             }.addOnFailureListener {
                 it.printStackTrace()
-                Log.e(TAG,"Failed")
+                Log.e(TAG, "Failed")
             }
     }
 }

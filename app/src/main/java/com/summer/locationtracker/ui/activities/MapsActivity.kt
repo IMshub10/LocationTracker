@@ -24,6 +24,7 @@ import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.summer.locationtracker.data.local_user_storage.LocalUserDataStorage
 import com.summer.locationtracker.utils.Constants
 import com.summer.locationtracker.utils.ServiceAlarmHandler
 import com.summer.locationtracker.utils.WriteNUpdateUsersLocation
@@ -157,15 +158,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .addOnSuccessListener { location: Location? ->
                 if (location != null) {
                     val currentLatLongs = LatLng(location.latitude, location.longitude)
+                    LocalUserDataStorage.setUsersLocationData(
+                        applicationContext,
+                        location.latitude.toString(),
+                        location.longitude.toString()
+                    )
                     mMap.addMarker(MarkerOptions().position(currentLatLongs).title("Your Location"))
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLongs))
-                    val storeValue =
-                        "From maps -> Latitude = ${location.latitude}    Longitude = ${location.longitude}"
-                    try {
-                        WriteNUpdateUsersLocation().createOrUpdate(this, storeValue)
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    }
                 }
             }.addOnFailureListener {
                 it.printStackTrace()
